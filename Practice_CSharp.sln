@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator", "Practice_CSharp\PasswordGenerator.csproj", "{6276A7B4-7D26-4031-97B7-1F44D2AE7C36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarModelOrganizer", "CarModelOrganizer\CarModelOrganizer.csproj", "{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6276A7B4-7D26-4031-97B7-1F44D2AE7C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6276A7B4-7D26-4031-97B7-1F44D2AE7C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6276A7B4-7D26-4031-97B7-1F44D2AE7C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
