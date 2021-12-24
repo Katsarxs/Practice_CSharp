@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace PaaswordGenerator
+namespace PasswordGenerator
 {
     class Program
     {
