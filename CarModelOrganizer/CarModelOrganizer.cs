@@ -1,43 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarModelOrganizer
 {
     /// <summary>
     /// The Organizer Of Cars.
     /// </summary>
-    public class CarModelOrganizer : IEquatable<CarModelOrganizer>
+    public class CarModel : IEquatable<CarModel>
     {
         /// <summary>
-        /// The Number Of Models.
+        /// The company name.
         /// </summary>
-        public int count = 0;
+        public string Company { get; set; }
 
         /// <summary>
-        /// Company's Name.
-        /// </summary>
-        public string Company { get; set; }    
-        
-        /// <summary>
-        /// Model's Name.
+        /// The model.
         /// </summary>
         public string Model { get; set; }
-        
+
         /// <summary>
-        /// Price's Number.
+        /// The price.
         /// </summary>
-        public string Price { get; set; }
+        public decimal Price { get; set; }
 
         /// <summary>
         /// The Output Appearance.
         /// </summary>
-        /// <returns> Company: NumberOfModels [Models]</returns>
-        public override string ToString()
+        /// <returns>Model</returns>
+        public override string ToString() => Model;
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public CarModel() : base()
         {
-            return Company + ": " + count + " [" + Model + "]";
+
         }
 
         /// <summary>
@@ -45,13 +41,12 @@ namespace CarModelOrganizer
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public bool Equals(CarModelOrganizer? other)
+        public bool Equals(CarModel other)
         {
-            throw new NotImplementedException();
+            if (other == null)
+                return false;
+
+            return Company == other.Company && Model == other.Model && Price == other.Price;
         }
-
-
-
     }
 }
