@@ -10,7 +10,7 @@ namespace CarModelOrganizer
         /// <summary>
         /// The company name.
         /// </summary>
-        public string Company { get; set; }
+        public string CompanyName { get; set; }
 
         /// <summary>
         /// The model.
@@ -46,7 +46,7 @@ namespace CarModelOrganizer
             if (other == null)
                 return false;
 
-            return Company == other.Company && Model == other.Model && Price == other.Price;
+            return CompanyName == other.CompanyName && Model == other.Model && Price == other.Price;
         }
     }
 }

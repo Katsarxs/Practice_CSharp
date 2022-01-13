@@ -11,62 +11,124 @@ namespace CarModelOrganizer
 {
     class Program
     {
-        var input = new List<CarModel>()
+        static void Main(string[] args)
+        {
+            Test();
+
+        }
+        public static void Test()
+        {
+            var input = new List<CarModel>()
             {
                 new()
                 {
-                    Company = "Toyota",
+                    CompanyName = "Toyota",
                     Model = "Yaris",
                     Price = 14000
                 },
                 new()
                 {
-                    Company = "Opel",
+                    CompanyName = "Opel",
                     Model = "Corsa",
                     Price = 16000
                 },
                 new()
                 {
-                    Company = "Toyota",
+                    CompanyName = "Toyota",
                     Model = "Aygo",
                     Price = 11000
                 },
                 new()
                 {
-                    Company = "Toyota",
+                    CompanyName = "Toyota",
                     Model = "Corolla",
                     Price = 17000
                 },
                 new()
                 {
-                    Company = "Fiat",
+                    CompanyName = "Fiat",
                     Model = "Panda",
                     Price = 12000
                 },
                 new()
                 {
-                    Company = "Opel",
+                    CompanyName = "Opel",
                     Model = "Corsa",
                     Price = 15500
                 },
                 new()
                 {
-                    Company = "Toyota",
+                    CompanyName = "Toyota",
                     Model = "Yaris",
                     Price = 17000
                 },
                 new()
                 {
-                    Company = "Opel",
+                    CompanyName = "Opel",
                     Model = "Astra",
                     Price = 19000
                 },
                 new()
                 {
-                    Company = "Fiat",
+                    CompanyName = "Fiat",
                     Model = "Tipo",
                     Price = 12000
                 }
             };
+
+            input.GroupBy(x => x.CompanyName)
+                .ToList()
+                .ForEach(x => Console.WriteLine($"{x.Key} : {x.Count()} [{x.Select(x => x.Model).Distinct().Aggregate((leftElement, rightElement) => leftElement + ", " + rightElement)}]"));
+
+            var companies = new HashSet<string>();
+
+            foreach (var company in input)
+            {
+                companies.Add(company.CompanyName);
+
+            }
+
+            var carsPerCompany = new Dictionary<string, List<CarModel>>();
+
+            foreach (var companyName in companies)
+            {
+                var companyCars = input.Where(carModel => carModel.CompanyName == companyName).ToList();
+
+                carsPerCompany.Add(companyName, companyCars);
+            }
+
+
+
+
+            foreach (var companyName in companies)
+            {
+                var companyCarModels = carsPerCompany[companyName];
+
+                var t = companyCarModels.Select(x => x.Model).Distinct().Aggregate((leftElement, rightElement) => leftElement + ", " + rightElement);
+
+                Console.WriteLine($"{companyName} : {companyCarModels.Count} [{t}]");
+            }
+
+            var breakPoint = "";
+        }
+
+        public int Int()
+            => 0;
+
+        public decimal Max(List<CarModel> values)
+        {
+            return values.Max(x => x.Price);  
+        }
+
+        public TClass Max<TClass>(List<TClass> values, Func<TClass, int> valueSelector)
+        {
+            var dict = new Dictionary<TClass, int>();
+            foreach (var element in values)
+            {
+               dict.Add(element,  valueSelector(element));
+            }
+
+            return dict.OrderByDescending(x => x.Value).First().Key;
+        }
     }
 }
