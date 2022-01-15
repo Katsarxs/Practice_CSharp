@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarModelOrganizer", "CarModelOrganizer\CarModelOrganizer.csproj", "{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarModelOrganizer", "CarModelOrganizer\CarModelOrganizer.csproj", "{B80198BB-A9AB-4D71-87E2-1F642C03B8EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator", "PasswordGenerator\PasswordGenerator.csproj", "{08FAFFBA-ECDA-4B36-AA25-B343C41C817F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasswordGenerator", "PasswordGenerator\PasswordGenerator.csproj", "{08FAFFBA-ECDA-4B36-AA25-B343C41C817F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelOrganizer", "HotelOrganizer\HotelOrganizer.csproj", "{BFE0A114-6507-488A-8051-223EBE2A8E13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{08FAFFBA-ECDA-4B36-AA25-B343C41C817F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08FAFFBA-ECDA-4B36-AA25-B343C41C817F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08FAFFBA-ECDA-4B36-AA25-B343C41C817F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE0A114-6507-488A-8051-223EBE2A8E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE0A114-6507-488A-8051-223EBE2A8E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE0A114-6507-488A-8051-223EBE2A8E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE0A114-6507-488A-8051-223EBE2A8E13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
