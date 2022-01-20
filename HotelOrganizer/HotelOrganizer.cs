@@ -6,23 +6,30 @@ using System.Threading.Tasks;
 
 namespace HotelOrganizer
 {
-    public class Room
+    public class Reservation
     {
-        public string CustomerName { get; set; }
-        
-        public int ReservationPassword { get; set; }
+        public Reservation()
+        {
 
-        public int Arrival { get; set; }
+        }
+
+        public string CustomerName { get; set; }
+
+        public Guid ReservationId { get; } = Guid.NewGuid();
+
+        public DateTime Arrival { get; set; }
 
         public int DistributionDays { get; set; }
 
         public int People { get; set; }
+        public Room Room { get; set; }
 
     }
 
-    public class Reservation
+    public class Room
     {
-        public int RoomPassowrd { get; set; }
+
+        public Guid RoomId { get; } = Guid.NewGuid();
 
         public int MaxPeople { get; set; }
 
