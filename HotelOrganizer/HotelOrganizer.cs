@@ -22,16 +22,8 @@ namespace HotelOrganizer
         public int DistributionDays { get; set; }
 
         public int People { get; set; }
+
         public Room Room { get; set; }
-
-    }
-
-    public class Room
-    {
-
-        public Guid RoomId { get; } = Guid.NewGuid();
-
-        public int MaxPeople { get; set; }
 
     }
 
