@@ -25,7 +25,7 @@
         public Reservation SearchByReservationDate(DateOnly reservationDate)
             => mReservationPerDate.GetValueOrDefault(reservationDate);
 
-        public decimal CalculateRoomPrice()
+        public virtual decimal CalculateRoomPrice()
             => mReservationPerDate.Sum(pair => pair.Value.People * PricePerPerson);
 
         public IEnumerable<Reservation> CancelReservationById(Guid Id)
@@ -40,7 +40,46 @@
 
             return reservationEntries.Select(x => x.Value).ToList();
         }
+
+
+        public decimal GetRoomReservationPercentangePerMonth(DateOnly date)
+        {
+            var reservationsPerMonthAndPerYear = mReservationPerDate.Where(x => x.Key.Month == date.Month)
+                .Where(x => x.Key.Year == date.Year)
+                .ToList();
+
+            return reservationsPerMonthAndPerYear.Count / date.GetDaysOfMonth();
+        }
+
+        public decimal GetRoomReservationPercentangePerYear(int year)
+        {
+            var reservationsPerYear = mReservationPerDate
+                .Where(x => x.Key.Year == year)
+                .ToList();
+
+            var newYear = new DateOnly(year, 1, 1).AddYears(1).AddDays(-1);
+
+            return reservationsPerYear.Count / newYear.DayOfYear;
+        }
+
+        public class RoomTypeA : Room
+        {
+            public decimal PricePerDay { get; set; }
+
+            
+
+            public sealed override decimal CalculateRoomPrice()
+            {
+                var currentMonth = DateTime.Now.Month;
+
+                var reservationsOfMonth = GetReservations().Where(x => x.Key.Month == currentMonth);
+
+                var roomPrice = reservationsOfMonth.Count() * PricePerDay;
+
+                return roomPrice;
+            }
+        }
+
+
     }
-
-
 }
