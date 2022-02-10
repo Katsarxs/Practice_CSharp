@@ -27,18 +27,15 @@
 
         public virtual decimal CalculateRoomPrice()
             => mReservationPerDate.Sum(pair => pair.Value.People * PricePerPerson);
-
-        public IEnumerable<Reservation> CancelReservationById(Guid Id)
+        
+        public virtual Reservation CancelReservationById(Guid Id)
         {
-            var reservationEntries = mReservationPerDate.Where(x => x.Value.ReservationId == Id).ToList();
+            var reservationExists = mReservationPerDate.Any(x => x.Value.ReservationId == Id);
 
-            if (reservationEntries.Count == 0)
-                return Enumerable.Empty<Reservation>();
+            if (!reservationExists)
+                return null;
 
-            foreach (var x in reservationEntries)
-                mReservationPerDate.Remove(x.Key);
-
-            return reservationEntries.Select(x => x.Value).ToList();
+            return mReservationPerDate.First(x => x.Value.ReservationId == Id).Value;
         }
 
 
@@ -68,7 +65,7 @@
 
             
 
-            public sealed override decimal CalculateRoomPrice()
+            public override decimal CalculateRoomPrice()
             {
                 var currentMonth = DateTime.Now.Month;
 
@@ -77,6 +74,51 @@
                 var roomPrice = reservationsOfMonth.Count() * PricePerDay;
 
                 return roomPrice;
+            }
+        }
+
+        public class RoomTypeB : RoomTypeA
+        {
+            public decimal DiscountPerDay { get; set; }
+
+            public decimal PricePerDayThreshold => PricePerDay / 2;
+
+            public override Reservation CancelReservationById(Guid Id)
+            {
+                return null;
+            }
+
+            public override decimal CalculateRoomPrice()
+            {
+
+                var currentMonth = DateTime.Now.Month;
+
+                var reservationsOfMonth = GetReservations().Where(x => x.Key.Month == currentMonth).Select(x => x.Value);
+
+                var monthlyPrice = 0m;
+
+                var priceDiscounted = PricePerDay * DiscountPerDay;
+
+                foreach (var reservation in reservationsOfMonth)
+                {
+                    var currentPrice = PricePerDay;
+
+                    var currentReservationPrice = 0m;
+                    for (int i = 0; i < reservation.DistributionDays; i++)
+                    {
+                        currentReservationPrice += currentPrice;
+
+                        if ((currentPrice - priceDiscounted) > PricePerDayThreshold)
+                            currentPrice -= priceDiscounted;
+                        else
+                            currentPrice = PricePerDayThreshold;
+                    }
+
+                    monthlyPrice += currentReservationPrice;
+                }
+
+
+                return monthlyPrice;
             }
         }
 
