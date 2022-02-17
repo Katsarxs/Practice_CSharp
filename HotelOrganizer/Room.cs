@@ -14,12 +14,12 @@
         public IDictionary<DateOnly, Reservation> GetReservations()
             => mReservationPerDate;
 
-        public bool TryAddReservation(Reservation reservation, DateOnly reservationDate)
+        public virtual bool TryAddReservation(Reservation reservation)
         {
             if (MaxPeople < reservation.People)
                 return false;
             
-            return mReservationPerDate.TryAdd(reservationDate, reservation);
+            return mReservationPerDate.TryAdd(reservation.Arrival.ToDateOnly(), reservation);
         }
 
         public Reservation SearchByReservationDate(DateOnly reservationDate)
@@ -59,67 +59,59 @@
             return reservationsPerYear.Count / newYear.DayOfYear;
         }
 
-        public class RoomTypeA : Room
+
+        public class RoomTypeC : Room
         {
-            public decimal PricePerDay { get; set; }
+            public int MinPeople { get; set; }
+
+            public int MinDays { get; set; }
+
+            public override bool TryAddReservation(Reservation reservation)
+            {
+
+                if(MinDays > reservation.DistributionDays || MinPeople > reservation.People)
+                    return false;
+
+                return base.TryAddReservation(reservation);
+            }
 
             
 
-            public override decimal CalculateRoomPrice()
-            {
-                var currentMonth = DateTime.Now.Month;
 
-                var reservationsOfMonth = GetReservations().Where(x => x.Key.Month == currentMonth);
-
-                var roomPrice = reservationsOfMonth.Count() * PricePerDay;
-
-                return roomPrice;
-            }
         }
 
-        public class RoomTypeB : RoomTypeA
+        public class Hotel
         {
-            public decimal DiscountPerDay { get; set; }
+            public string Name { get; set; }
 
-            public decimal PricePerDayThreshold => PricePerDay / 2;
+            private readonly List<Room> mRooms = new List<Room>();
 
-            public override Reservation CancelReservationById(Guid Id)
+            public IEnumerable<Room> Rooms => mRooms;
+
+            private readonly List<Reservation> mReservations = new List<Reservation>();
+
+            public IEnumerable<Reservation> Reservations => mReservations;
+
+            public void AddRoom(Room room) => mRooms.Add(room);
+
+            public Room GetRoomById(Guid roomId) => mRooms.FirstOrDefault(x => x.RoomId == roomId);
+
+            public Reservation GetReservationById(Guid reservationId) => mReservations.FirstOrDefault(x => x.ReservationId == reservationId);
+
+            public bool TryAddReservationToRoom(Reservation reservation, Guid roomId)
             {
-                return null;
+                var room = GetRoomById(roomId);
+
+                if (room == null)
+
+                    return false;
+
+                return room.TryAddReservation(reservation);
             }
 
-            public override decimal CalculateRoomPrice()
-            {
-
-                var currentMonth = DateTime.Now.Month;
-
-                var reservationsOfMonth = GetReservations().Where(x => x.Key.Month == currentMonth).Select(x => x.Value);
-
-                var monthlyPrice = 0m;
-
-                var priceDiscounted = PricePerDay * DiscountPerDay;
-
-                foreach (var reservation in reservationsOfMonth)
-                {
-                    var currentPrice = PricePerDay;
-
-                    var currentReservationPrice = 0m;
-                    for (int i = 0; i < reservation.DistributionDays; i++)
-                    {
-                        currentReservationPrice += currentPrice;
-
-                        if ((currentPrice - priceDiscounted) > PricePerDayThreshold)
-                            currentPrice -= priceDiscounted;
-                        else
-                            currentPrice = PricePerDayThreshold;
-                    }
-
-                    monthlyPrice += currentReservationPrice;
-                }
 
 
-                return monthlyPrice;
-            }
+
         }
 
 
