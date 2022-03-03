@@ -1,7 +1,5 @@
 ﻿namespace HotelOrganizer
 {
-    public partial class Room
-    {
         public class RoomTypeB : RoomTypeA
         {
             public decimal DiscountPerDay { get; set; }
@@ -46,7 +44,4 @@
                 return monthlyPrice;
             }
         }
-
-
-    }
 }
