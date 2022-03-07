@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasswordGenerator", "Passwo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelOrganizer", "HotelOrganizer\HotelOrganizer.csproj", "{BFE0A114-6507-488A-8051-223EBE2A8E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelAPI", "HotelAPI\HotelAPI.csproj", "{994A9D60-5020-45D2-952A-00F2C8B7BA71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelAPI", "HotelAPI\HotelAPI.csproj", "{994A9D60-5020-45D2-952A-00F2C8B7BA71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{FDF7DCA5-19EA-42A3-9CF8-BFB9E7744C7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{FDF7DCA5-19EA-42A3-9CF8-BFB9E7744C7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elise Core API", "Elise Core API\Elise Core API.csproj", "{FA183BB4-3031-4D16-853A-A241A6F79C05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FDF7DCA5-19EA-42A3-9CF8-BFB9E7744C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF7DCA5-19EA-42A3-9CF8-BFB9E7744C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF7DCA5-19EA-42A3-9CF8-BFB9E7744C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA183BB4-3031-4D16-853A-A241A6F79C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA183BB4-3031-4D16-853A-A241A6F79C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA183BB4-3031-4D16-853A-A241A6F79C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA183BB4-3031-4D16-853A-A241A6F79C05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
