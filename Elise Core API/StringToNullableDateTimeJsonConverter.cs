@@ -10,6 +10,7 @@ namespace Elise_Core_API
     /// <summary>
     /// The <see cref="JsonConverter{T}"/> that sets a <see cref="DateOnly"/> property based on its existence on the Json string
     /// </summary>
+    
     public class StringToNullableDateTimeJsonConverter : JsonConverter<DateTime?>
     {
         #region Constants
@@ -47,6 +48,7 @@ namespace Elise_Core_API
         /// <param name="writer">The writer</param>
         /// <param name="value">The value to write</param>
         /// <param name="serializer">The serializer</param>
+        
         public override void WriteJson(JsonWriter writer, DateTime? value, JsonSerializer serializer)
         {
             if (value == null)
@@ -61,6 +63,7 @@ namespace Elise_Core_API
     /// <summary>
     /// The <see cref="JsonConverter{T}"/> that sets a <see cref="DateOnly"/> property based on its existence on the Json string
     /// </summary>
+    
     public class StringToDateTimeJsonConverter : JsonConverter<DateTime?>
     {
         #region Constants

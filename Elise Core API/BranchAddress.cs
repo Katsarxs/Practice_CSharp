@@ -2,9 +2,8 @@
 
 namespace Elise_Core_API
 {
-    public partial class Address
+    public class BranchAddress
     {
-
         /// <summary>
         /// Country's Name
         /// </summary>

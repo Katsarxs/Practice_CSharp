@@ -86,7 +86,7 @@ namespace Elise_Core_API
         /// </summary>
 
         [JsonProperty("activities")]
-        IEnumerable<string>? Activities { get; set; }
+        public IEnumerable<string>? Activities { get; set; }
 
         /// <summary>
         /// General Commercial Registry Number
@@ -100,21 +100,21 @@ namespace Elise_Core_API
         /// </summary>
 
         [JsonProperty("phones")]
-        IEnumerable<string>? Phones { get; set; }
+        public IEnumerable<string>? Phones { get; set; }
 
         /// <summary>
         /// Faxes List
         /// </summary>
 
         [JsonProperty("faxes")]
-        IEnumerable<string>? Faxes { get; set; }
+        public IEnumerable<string>? Faxes { get; set; }
 
         /// <summary>
         /// Emails List
         /// </summary>
 
         [JsonProperty("emails")]
-        IEnumerable<string>? Emails { get; set; }
+        public IEnumerable<string>? Emails { get; set; }
 
         /// <summary>
         /// Company Url
@@ -151,13 +151,120 @@ namespace Elise_Core_API
         [JsonProperty("posId")]
         public string? PosId { get; set; }
 
+        /// <summary>
+        /// Phones List of Branch
+        /// </summary>
+        
+        [JsonProperty("branchPhones")]
+        public IEnumerable<string>? BranchPhones { get; set; }
 
+        /// <summary>
+        /// Faxes List of Branch
+        /// </summary>
 
+        [JsonProperty("branchFaxes")]
+        public IEnumerable<string>? BranchFaxes { get; set; }
 
+        /// <summary>
+        /// Tax Regime
+        /// </summary>
 
-        //branchAddress
+        [JsonProperty("taxRegime")]
+        public string? TaxRegime { get; set; }
 
+        /// <summary>
+        /// Category
+        /// </summary>
 
+        [JsonProperty("category")]
+        public string? Category { get; set; }
 
+        /// <summary>
+        /// Type
+        /// </summary>
+
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
+        /// Code
+        /// </summary>
+
+        [JsonProperty("code")]
+        public string? Code { get; set; }
+
+        /// <summary>
+        /// External Code
+        /// </summary>
+
+        [JsonProperty("externalCode")]
+        public string? ExternalCode { get; set; }
+
+        /// <summary>
+        /// Other Info
+        /// </summary>
+
+        [JsonProperty("otherInfo")]
+        public string? OtherInfo { get; set; }
+
+        /// <summary>
+        /// Identity Type
+        /// </summary>
+
+        [JsonProperty("identityType")]
+        public string? IdentityType { get; set; }
+
+        /// <summary>
+        /// Identity Identifier
+        /// </summary>
+
+        [JsonProperty("identityIdentifier")]
+        public string? IdentityIdentifier { get; set; }
+
+        /// <summary>
+        /// Tax Representative Name
+        /// </summary>
+
+        [JsonProperty("taxRepresentativeName")]
+        public string? TaxRepresentativeName { get; set; }
+
+        /// <summary>
+        /// Tax Representative Vat
+        /// </summary>
+
+        [JsonProperty("taxRepresentativeVat")]
+        public string? TaxRepresentativeVat { get; set; }
+
+        /// <summary>
+        /// Tax Representative Country
+        /// </summary>
+
+        [JsonProperty("taxRepresentativeCountry")]
+        public string? TaxRepresentativeCountry { get; set; }
+
+        /// <summary>
+        /// Tax Representative Country Code
+        /// </summary>
+
+        [JsonProperty("taxRepresentativeCountryCode")]
+        public string? TaxRepresentativeCountryCode { get; set; }
+
+        /// <summary>
+        /// Counter Party Vat Exemption Note
+        /// </summary>
+
+        [JsonProperty("vatExemptionNote")]
+        public string? vatExemptionNote { get; set; }
+
+        /// <summary>
+        /// Fuel distributor code for fuel invoices
+        /// </summary>
+
+        [JsonProperty("fuelDistributorCode")]
+        public string? FuelDistributorCode { get; set; }
+
+        //taxRepresentativeCountryCode
+        //vatExemptionNote
+        //fuelDistributorCode
     }
 }
