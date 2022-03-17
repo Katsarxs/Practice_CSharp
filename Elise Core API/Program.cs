@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EliseCoreAPI
+namespace Elise_Core_API
 {
     public class GetCurrentPackage
     {
@@ -21,6 +21,7 @@ namespace EliseCoreAPI
         /// </summary>
         
         [JsonProperty("validFrom")]
+        [JsonConverter(typeof(StringToNullableDateTimeJsonConverter))]
         public DateTime? ValidFrom { get; set; }
 
         /// <summary>
@@ -28,6 +29,7 @@ namespace EliseCoreAPI
         /// </summary>
 
         [JsonProperty("validTo")]
+        [JsonConverter(typeof(StringToNullableDateTimeJsonConverter))]
         public DateTime? ValidTo { get; set; }
 
         /// <summary>
@@ -54,7 +56,7 @@ namespace EliseCoreAPI
 
     }
 
-    public class Json
+    public partial class Json
     {
 
         /// <summary>
@@ -218,14 +220,14 @@ namespace EliseCoreAPI
         /// </summary>
 
         [JsonProperty("relativeDocuments")]
-        IEnumerable<string>? RelativeDocuments { get; set; }
+        public IEnumerable<string>? RelativeDocuments { get; set; }
 
         /// <summary>
         /// Correlated Invoices - AADE field
         /// </summary>
 
         [JsonProperty("correlatedInvoices")]
-        IEnumerable<Int64>? CorrelatedInvoices { get; set; }
+        public IEnumerable<long>? CorrelatedInvoices { get; set; }
 
         /// <summary>
         /// Recipient Role
@@ -289,272 +291,6 @@ namespace EliseCoreAPI
 
         [JsonProperty("dispatchAdvice")]
         public string? DispatchAdvice { get; set; }
-
-        public class Issuer
-        {
-            /// <summary>
-            /// Registered Company Name
-            /// </summary>
-
-            [JsonProperty("registeredName")]
-            public string? RegisteredName { get; set; }
-
-            /// <summary>
-            /// Brand's Name for multiple brands under the same VAT
-            /// </summary>
-
-            [JsonProperty("brandName")]
-            public string? BrandName { get; set; }
-
-            /// <summary>
-            /// Contact Person
-            /// </summary>
-
-            [JsonProperty("contactPerson")]
-            public string? ContactPerson { get; set; }
-
-            /// <summary>
-            /// Registration Number
-            /// </summary>
-
-            [JsonProperty("registrationNumber")]
-            public string? RegistrationNumber { get; set; }
-
-            /// <summary>
-            /// Envelope Number
-            /// </summary>
-
-            [JsonProperty("envelopeNumber")]
-            public string? EnvelopeNumber { get; set; }
-
-            /// <summary>
-            /// Code used in YSM registry
-            /// </summary>
-
-            [JsonProperty("ysn")]
-            public string? Ysn { get; set; }
-
-            /// <summary>
-            /// Vat starting with country code
-            /// </summary>
-
-            [JsonProperty("vat")]
-            public string? Vat { get; set; }
-
-            /// <summary>
-            /// Paid Up Shared Capital
-            /// </summary>
-
-            [JsonProperty("paidUpSharedCapital")]
-            public string? PaidUpSharedCapital { get; set; }
-
-            /// <summary>
-            /// Shared Capital Subscribed
-            /// </summary>
-
-            [JsonProperty("sharedCapitalSubscribed")]
-            public string? SharedCapitalSubscribed { get; set; }
-
-            /// <summary>
-            /// Tax Office
-            /// </summary>
-
-            [JsonProperty("taxOffice")]
-            public string? TaxOffice { get; set; }
-
-            /// <summary>
-            /// Tax Office Code
-            /// </summary>
-
-            [JsonProperty("taxOfficeCode")]
-            public string? TaxOfficeCode { get; set; }
-
-            /// <summary>
-            /// List of Activities of company
-            /// </summary>
-
-            [JsonProperty("activities")]
-            IEnumerable<string>? Activities { get; set; }
-
-            /// <summary>
-            /// General Commercial Registry Number
-            /// </summary>
-
-            [JsonProperty("generalCommercialRegistryNumber")]
-            public string? GeneralCommercialRegistryNumber { get; set; }
-
-            /// <summary>
-            /// Phones List
-            /// </summary>
-
-            [JsonProperty("phones")]
-            IEnumerable<string>? Phones { get; set; }
-
-            /// <summary>
-            /// Faxes List
-            /// </summary>
-
-            [JsonProperty("faxes")]
-            IEnumerable<string>? Faxes { get; set; }
-
-            /// <summary>
-            /// Emails List
-            /// </summary>
-
-            [JsonProperty("emails")]
-            IEnumerable<string>? Emails { get; set; }
-
-            /// <summary>
-            /// Company Url
-            /// </summary>
-
-            [JsonProperty("url")]
-            public Uri? Url { get; set; }
-
-            public class Address
-            {
-
-                /// <summary>
-                /// Country's Name
-                /// </summary>
-
-                [JsonProperty("country")]
-                public string? Country { get; set; }
-
-                /// <summary>
-                /// Country's ISO Code
-                /// </summary>
-
-                [JsonProperty("countryCode")]
-                public string? CountryCode { get; set; }
-
-                /// <summary>
-                /// Municipality's Name
-                /// </summary>
-
-                [JsonProperty("municipality")]
-                public string? Municipality { get; set; }
-
-                /// <summary>
-                /// Municipality's Code
-                /// </summary>
-
-                [JsonProperty("municipalityCode")]
-                public string? MunicipalityCode { get; set; }
-
-                /// <summary>
-                /// Region's Name
-                /// </summary>
-
-                [JsonProperty("region")]
-                public string? Region { get; set; }
-
-                /// <summary>
-                /// Region's Code
-                /// </summary>
-
-                [JsonProperty("regionCode")]
-                public string? RegionCode { get; set; }
-
-                /// <summary>
-                /// City's Name
-                /// </summary>
-
-                [JsonProperty("city")]
-                public string? City { get; set; }
-
-                /// <summary>
-                /// City's Code
-                /// </summary>
-
-                [JsonProperty("cityCode")]
-                public string? CityCode { get; set; }
-
-                /// <summary>
-                /// Street's Name
-                /// </summary>
-
-                [JsonProperty("street")]
-                public string? Street { get; set; }
-
-                /// <summary>
-                /// Street's Number
-                /// </summary>
-
-                [JsonProperty("number")]
-                public string? StreetNumber { get; set; }
-
-                /// <summary>
-                /// Postal
-                /// </summary>
-
-                [JsonProperty("postal")]
-                public string? Postal { get; set; }
-
-                public class GeographicalCoordinates
-                {
-                    /// <summary>
-                    /// Item1
-                    /// </summary>
-
-                    [JsonProperty("item1")]
-                    public string? Item1 { get; set; }
-
-                    /// <summary>
-                    /// Item1
-                    /// </summary>
-
-                    [JsonProperty("item2")]
-                    public string? Item2 { get; set; }
-
-                }
-
-                /// <summary>
-                /// GLN
-                /// </summary>
-
-                [JsonProperty("gln")]
-                public string? Gln { get; set; }
-
-            }
-
-            /// <summary>
-            /// Branch
-            /// </summary>
-
-            [JsonProperty("branch")]
-            public string? Branch { get; set; }
-
-            /// <summary>
-            /// Branch Code
-            /// </summary>
-
-            [JsonProperty("branchCode")]
-            public string? branchCode { get; set; }
-
-            /// <summary>
-            /// Branch Id
-            /// </summary>
-
-            [JsonProperty("branchId")]
-            public string? BranchId { get; set; }
-
-            /// <summary>
-            /// Pos Id
-            /// </summary>
-
-            [JsonProperty("posId")]
-            public string? PosId { get; set; }
-
-            
-
-
-
-            //branchAddress
-
-
-
-        }
 
     }
 }
