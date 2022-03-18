@@ -325,5 +325,6 @@ namespace Elise_Core_API
         [JsonProperty("contractOrderDetails")]
         public ContractOrderDetails ContractOrderDetails { get; set; }
 
+
     }
 }
