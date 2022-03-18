@@ -56,7 +56,7 @@ namespace Elise_Core_API
 
     }
 
-    public partial class Json
+    public class Json
     {
 
         /// <summary>
@@ -94,7 +94,13 @@ namespace Elise_Core_API
         [JsonProperty("uid")]
         public string? Uid { get; set; }
 
-        // iaprSignPolicy
+        /// <summary>
+        /// Determines when the provider self-signs the document.
+        /// </summary>
+
+        [JsonProperty("iaprSignPolicy")]
+        [JsonConverter(typeof(IAPRSignPolicyToStringJsonConverter))]
+        public IAPRSignPolicyEnum IAPRSignPolicy { get; set; }
 
         /// <summary>
         /// Unique Id
@@ -291,6 +297,33 @@ namespace Elise_Core_API
 
         [JsonProperty("dispatchAdvice")]
         public string? DispatchAdvice { get; set; }
+
+        [JsonProperty("issuer")]
+        public Party Issuer { get; set; }
+
+        [JsonProperty("counterParty")]
+        public Party CounterParty { get; set; }
+
+        [JsonProperty("recipient")]
+        public Party Recipient { get; set; }
+
+        [JsonProperty("billingContractor")]
+        public Party BillingContractor { get; set; }
+
+        [JsonProperty("originator")]
+        public Party Originator { get; set; }
+
+        [JsonProperty("sender")]
+        public Party Sender { get; set; }
+
+        [JsonProperty("allowancesCharges")]
+        public IEnumerable<AllowanceCharge>? AllowancesCharges { get; set; }
+
+        [JsonProperty("banks")]
+        public IEnumerable<Bank>? Banks { get; set; }
+
+        [JsonProperty("contractOrderDetails")]
+        public ContractOrderDetails ContractOrderDetails { get; set; }
 
     }
 }

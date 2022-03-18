@@ -2,7 +2,7 @@
 
 namespace Elise_Core_API
 {
-    public partial class GeographicalCoordinates
+    public class StringStringValueTuple
     {
         /// <summary>
         /// Item1

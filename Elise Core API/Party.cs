@@ -2,7 +2,7 @@
 
 namespace Elise_Core_API
 {
-    public partial class Issuer
+    public class Party
     {
         /// <summary>
         /// Registered Company Name
@@ -123,6 +123,9 @@ namespace Elise_Core_API
         [JsonProperty("url")]
         public Uri? Url { get; set; }
 
+        [JsonProperty("address")]
+        public Address Address { get; set; }
+
         /// <summary>
         /// Branch
         /// </summary>
@@ -151,10 +154,13 @@ namespace Elise_Core_API
         [JsonProperty("posId")]
         public string? PosId { get; set; }
 
+        [JsonProperty("branchAddress")]
+        public Address BranchAddress { get; set; }
+
         /// <summary>
         /// Phones List of Branch
         /// </summary>
-        
+
         [JsonProperty("branchPhones")]
         public IEnumerable<string>? BranchPhones { get; set; }
 
@@ -263,8 +269,5 @@ namespace Elise_Core_API
         [JsonProperty("fuelDistributorCode")]
         public string? FuelDistributorCode { get; set; }
 
-        //taxRepresentativeCountryCode
-        //vatExemptionNote
-        //fuelDistributorCode
     }
 }

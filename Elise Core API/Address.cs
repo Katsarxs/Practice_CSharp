@@ -2,7 +2,7 @@
 
 namespace Elise_Core_API
 {
-    public partial class Address
+    public class Address
     {
 
         /// <summary>
@@ -81,6 +81,9 @@ namespace Elise_Core_API
 
         [JsonProperty("postal")]
         public string? Postal { get; set; }
+
+        [JsonProperty("geographicalCoordinates")]
+        public StringStringValueTuple GeographicalCoordinates { get; set; }
 
         /// <summary>
         /// GLN
