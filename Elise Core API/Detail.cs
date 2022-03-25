@@ -217,5 +217,407 @@ namespace Elise_Core_API
 
         [JsonProperty("quantity2")]
         public decimal? Quantity2 { get; set; }
+
+        /// <summary>
+        /// Net weight without packaging
+        /// </summary>
+
+        [JsonProperty("netWeight")]
+        public decimal? NetWeight { get; set; }
+
+        /// <summary>
+        /// Gross weight with packaging weight included
+        /// </summary>
+
+        [JsonProperty("grossWeight")]
+        public decimal? GrossWeight { get; set; }
+
+        /// <summary>
+        /// Volume of package
+        /// </summary>
+
+        [JsonProperty("volume")]
+        public decimal? Volume { get; set; }
+
+        /// <summary>
+        /// Total Allowances or Charges
+        /// </summary>
+
+        [JsonProperty("allowancesCharges")]
+        public AllowanceCharge? AllowancesCharges { get; set; }
+
+        /// <summary>
+        /// Internal Product or Service Id
+        /// </summary>
+
+        [JsonProperty("internalId")]
+        public string? InternalId { get; set; }
+
+        /// <summary>
+        /// Total Surcharge Amount
+        /// </summary>
+
+        [JsonProperty("totalSurchargeAmount")]
+        public decimal? TotalSurchargeAmount { get; set; }
+
+        /// <summary>
+        /// Total Special Taxes
+        /// </summary>
+
+        [JsonProperty("totalSpecialTaxes")]
+        public decimal? TotalSpecialTaxes { get; set; }
+
+        /// <summary>
+        /// Total Cost
+        /// </summary>
+
+        [JsonProperty("totalCost")]
+        public decimal? TotalCost { get; set; }
+
+        /// <summary>
+        /// Total Net Value Before Discount
+        /// </summary>
+
+        [JsonProperty("totalNetValueBeforeTotalDiscount")]
+        public decimal? TotalNetValueBeforeTotalDiscount { get; set; }
+
+        /// <summary>
+        /// Line Apportioned Discount Value
+        /// </summary>
+
+        [JsonProperty("lineApportionedDiscountValue")]
+        public decimal? LineApportionedDiscountValue { get; set; }
+
+        /// <summary>
+        /// Currency
+        /// </summary>
+
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+
+        /// <summary>
+        /// Rate
+        /// </summary>
+
+        [JsonProperty("rate")]
+        public decimal? Rate { get; set; }
+
+        /// <summary>
+        /// Foreign Currency Value
+        /// </summary>
+
+        [JsonProperty("foreignCurrencyValue")]
+        public decimal? ForeignCurrencyValue { get; set; }
+
+        /// <summary>
+        /// Remarks
+        /// </summary>
+
+        [JsonProperty("remarks")]
+        public string? Remarks { get; set; }
+
+        /// <summary>
+        /// Reason
+        /// </summary>
+
+        [JsonProperty("reason")]
+        public string? Reason { get; set; }
+
+        [JsonProperty("detailRecipient")]
+        public Party? DetailRecipient { get; set; }
+
+        /// <summary>
+        /// Project
+        /// </summary>
+
+        [JsonProperty("project")]
+        public string? Project { get; set; }
+
+        /// <summary>
+        /// Lot Number
+        /// </summary>
+
+        [JsonProperty("lotNumber")]
+        public string? LotNumber { get; set; }
+
+        /// <summary>
+        /// List of Serial Numbers
+        /// </summary>
+
+        [JsonProperty("serialNumbers")]
+        public IEnumerable<string>? SerialNumbers { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        [JsonProperty("relativeDocuments")]
+        public IEnumerable<string>? RelativeDocuments { get; set; }
+
+        /// <summary>
+        /// Unit price before any allowances, charges or taxes
+        /// </summary>
+
+        [JsonProperty("catalogUnitPrice")]
+        public decimal? CatalogUnitPrice { get; set; }
+
+        /// <summary>
+        /// The taxable unit price. Unit price after all discounts/charges are applied.
+        /// </summary>
+
+        [JsonProperty("unitPrice")]
+        public decimal? UnitPrice { get; set; }
+
+        /// <summary>
+        /// Total net amount before any allowances, charges or taxes
+        /// </summary>
+
+        [JsonProperty("catalogNetTotal")]
+        public decimal? CatalogNetTotal { get; set; }
+
+        /// <summary>
+        /// Total gross amount before any allowances, charges or taxes
+        /// </summary>
+
+        [JsonProperty("catalogTotal")]
+        public decimal? CatalogTotal { get; set; }
+
+        /// <summary>
+        /// Total amount after inline discount-charges
+        /// </summary>
+
+        [JsonProperty("netTotalAfterInlineALCs")]
+        public decimal? NetTotalAfterInlineALCs { get; set; }
+
+        /// <summary>
+        /// The taxable net total in Euro. Calculated after all discounts/charges are applied.
+        /// </summary>
+
+        [JsonProperty("netTotal")]
+        public decimal? NetTotal { get; set; }
+
+        /// <summary>
+        /// The taxable net total in Accounting Currency. Calculated after all discounts/charges are applied.
+        /// </summary>
+
+        [JsonProperty("netTotalAC")]
+        public decimal? NetTotalAC { get; set; }
+
+        /// <summary>
+        /// Final gross amount in Euro, after all allowances, charges and taxes
+        /// </summary>
+
+        [JsonProperty("total")]
+        public decimal? Total { get; set; }
+
+        /// <summary>
+        /// Final amount in Accounting Currency, after all allowances, charges and taxes
+        /// </summary>
+
+        [JsonProperty("totalAC")]
+        public decimal? TotalAC { get; set; }
+
+        /// <summary>
+        /// Total of all allowances applied
+        /// </summary>
+
+        [JsonProperty("allowancesTotal")]
+        public decimal? AllowancesTotal { get; set; }
+
+        /// <summary>
+        /// Total of all allowances applied in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("allowancesTotalAC")]
+        public decimal? AllowancesTotalAC { get; set; }
+
+        /// <summary>
+        /// Total of all charges applied
+        /// </summary>
+
+        [JsonProperty("chargesTotal")]
+        public decimal? ChargesTotal { get; set; }
+
+        /// <summary>
+        /// Total of all charges applied in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("chargesTotalAC")]
+        public decimal? ChargesTotalAC { get; set; }
+
+        /// <summary>
+        /// Total of all vat applied
+        /// </summary>
+
+        [JsonProperty("vatTotal")]
+        public decimal? VatTotal { get; set; }
+
+        /// <summary>
+        /// Total of all vat applied in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("vatTotalAC")]
+        public decimal? VatTotalAC { get; set; }
+
+        /// <summary>
+        /// Exchange Currency Value
+        /// </summary>
+
+        [JsonProperty("exchangeCurrencyValue")]
+        public decimal? ExchangeCurrencyValue { get; set; }
+
+        /// <summary>
+        /// Local Currency Value
+        /// </summary>
+
+        [JsonProperty("localCurrencyValue")]
+        public decimal? LocalCurrencyValue { get; set; }
+
+        /// <summary>
+        /// Counter Part Currency Value
+        /// </summary>
+
+        [JsonProperty("counterpartCurrencyValue")]
+        public decimal? CounterpartCurrencyValue { get; set; }
+
+        /// <summary>
+        /// Reasoning
+        /// </summary>
+
+        [JsonProperty("reasoning")]
+        public string? Reasoning { get; set; }
+
+        /// <summary>
+        /// Beneficiary Account
+        /// </summary>
+
+        [JsonProperty("beneficiaryAccount")]
+        public string? BeneficiaryAccount { get; set; }
+
+        /// <summary>
+        /// Beneficiary
+        /// </summary>
+
+        [JsonProperty("beneficiary")]
+        public string? Beneficiary { get; set; }
+
+        /// <summary>
+        /// Exchange
+        /// </summary>
+
+        [JsonProperty("exchange")]
+        public string? Exchange { get; set; }
+
+        /// <summary>
+        /// Cash
+        /// </summary>
+
+        [JsonProperty("chrimatikaDiathesima")]
+        public string? ChrimatikaDiathesima { get; set; }
+
+        /// <summary>
+        /// Securities Amount
+        /// </summary>
+
+        [JsonProperty("securitiesAmount")]
+        public decimal? SecuritiesAmount { get; set; }
+
+        /// <summary>
+        /// Registration Number
+        /// </summary>
+
+        [JsonProperty("registrationNumber")]
+        public int? RegistrationNumber { get; set; }
+
+        /// <summary>
+        /// Securities Bank
+        /// </summary>
+
+        [JsonProperty("securitiesBank")]
+        public string? SecuritiesBank { get; set; }
+
+        /// <summary>
+        /// Due Date
+        /// </summary>
+
+        [JsonProperty("dueDate")]
+        [JsonConverter(typeof(StringToDateTimeJsonConverter))]
+        public DateTime? DueDate { get; set; }
+
+        /// <summary>
+        /// Local Currency Exchange Rate
+        /// </summary>
+
+        [JsonProperty("localCurrencyExchangeRate")]
+        public decimal? LocalCurrencyExchangeRate { get; set; }
+
+        /// <summary>
+        /// Securities Field
+        /// </summary>
+
+        [JsonProperty("securitiesField")]
+        public string? SecuritiesField { get; set; }
+
+        /// <summary>
+        /// Sponsor Code
+        /// </summary>
+
+        [JsonProperty("sponsorCode")]
+        public string? SponsorCode { get; set; }
+
+        /// <summary>
+        /// Sponsor Name
+        /// </summary>
+
+        [JsonProperty("sponsorName")]
+        public string? SponsorName { get; set; }
+
+        /// <summary>
+        /// Issuer Name
+        /// </summary>
+
+        [JsonProperty("issuerName")]
+        public string? IssuerName { get; set; }
+
+        /// <summary>
+        /// Issuer Code
+        /// </summary>
+
+        [JsonProperty("issuerCode")]
+        public string? IssuerCode { get; set; }
+
+        /// <summary>
+        /// Invoice Detail Type
+        /// </summary>
+
+        [JsonProperty("invoiceDetailType")]
+        public string? InvoiceDetailType { get; set; }
+
+        /// <summary>
+        /// Invoice Detail Type Code
+        /// </summary>
+
+        [JsonProperty("invoiceDetailTypeCode")]
+        public int? InvoiceDetailTypeCode { get; set; }
+
+        /// <summary>
+        /// Vat Excemption Category
+        /// </summary>
+
+        [JsonProperty("vatExcemptionCategory")]
+        public string? VatExcemptionCategory { get; set; }
+
+        /// <summary>
+        /// Vat Excemption Category Code
+        /// </summary>
+
+        [JsonProperty("vatExemptionCategoryCode")]
+        public int? VatExemptionCategoryCode { get; set; }
+
+        [JsonProperty("shipType")]
+        public ShipType? ShipType { get; set; }
+
+
+
     }
 }
