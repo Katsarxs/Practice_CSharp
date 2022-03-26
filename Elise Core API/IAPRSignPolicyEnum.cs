@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Elise_Core_API
 {
+    /// <summary>
+    /// IAPR currenty supports only 0,2,3,6 Determines the type of the line. Lines with rectype other than NORMAL, do not receive classifications.
+    /// </summary>
+
     public enum IAPRSignPolicyEnum
     {
         /// <summary>
@@ -28,7 +32,7 @@ namespace Elise_Core_API
         Strict
     }
 
-    public class IAPRSignPolicyToStringJsonConverter : JsonConverter<IAPRSignPolicyEnum>
+    public class IAPRSignPolicyEnumToStringJsonConverter : JsonConverter<IAPRSignPolicyEnum>
     {
         public override IAPRSignPolicyEnum ReadJson(JsonReader reader, Type objectType, IAPRSignPolicyEnum existingValue, bool hasExistingValue, JsonSerializer serializer)
         {

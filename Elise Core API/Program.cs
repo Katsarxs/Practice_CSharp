@@ -99,7 +99,7 @@ namespace Elise_Core_API
         /// </summary>
 
         [JsonProperty("iaprSignPolicy")]
-        [JsonConverter(typeof(IAPRSignPolicyToStringJsonConverter))]
+        [JsonConverter(typeof(IAPRSignPolicyEnumToStringJsonConverter))]
         public IAPRSignPolicyEnum IAPRSignPolicy { get; set; }
 
         /// <summary>
@@ -330,7 +330,8 @@ namespace Elise_Core_API
 
         [JsonProperty("additionalDetails")]
         public AdditionalDetails AdditionalDetails { get; set; }
-
-
+        
+        [JsonProperty("details")]
+        public IEnumerable<Detail> Detail { get; set; }
     }
 }

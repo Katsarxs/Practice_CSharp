@@ -617,6 +617,237 @@ namespace Elise_Core_API
         [JsonProperty("shipType")]
         public ShipType? ShipType { get; set; }
 
+        /// <summary>
+        /// Discount Option
+        /// </summary>
+
+        [JsonProperty("discountOption")]
+        public bool? DiscountOption { get; set; }
+
+        /// <summary>
+        /// Vat Category
+        /// </summary>
+
+        [JsonProperty("vatCategory")]
+        public string? VatCategory { get; set; }
+
+        /// <summary>
+        /// Vat Category Code
+        /// </summary>
+
+        [JsonProperty("vatCategoryCode")]
+        public int? VatCategoryCode { get; set; }
+
+        /// <summary>
+        /// With Held Amount
+        /// </summary>
+
+        [JsonProperty("withheldAmount")]
+        public decimal? WithheldAmount { get; set; }
+
+        /// <summary>
+        /// Withheld Amount in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("withheldAmountAC")]
+        public decimal? WithHeldAmountAC { get; set; }
+
+        /// <summary>
+        /// With Held Percent Category
+        /// </summary>
+
+        [JsonProperty("withheldPercentCategory")]
+        public string? WithHeldPercentCategory { get; set; }
+
+        /// <summary>
+        /// With Held Percentage Category Code
+        /// </summary>
+
+        [JsonProperty("withheldPercentCategoryCode")]
+        public int? WithHeldPercentCategoryCode { get; set; }
+
+        /// <summary>
+        /// Stamp Duty Amount
+        /// </summary>
+
+        [JsonProperty("stampDutyAmount")]
+        public decimal? StampDutyAmount { get; set; }
+
+        /// <summary>
+        /// Stamp Duty Amount in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("stampDutyAmountAC")]
+        public decimal? StampDutyAmountAC { get;set; }
+
+        /// <summary>
+        /// Stamp Duty Percent Category
+        /// </summary>
+
+        [JsonProperty("stampDutyPercentCategory")]
+        public string? StampDutyPercentCategory { get; set; }
+
+        /// <summary>
+        /// Stamp Duty Percent Category Code
+        /// </summary>
+
+        [JsonProperty("stampDutyPercentCategoryCode")]
+        public int? StampDutyPercentCategoryCode { get; set; }
+
+        /// <summary>
+        /// Total fees amount
+        /// </summary>
+
+        [JsonProperty("feesAmount")]
+        public decimal? FeesAmount { get; set; }
+
+        /// <summary>
+        /// Total fees amount in accounting currency
+        /// </summary>
+
+        [JsonProperty("feesAmountAC")]
+        public decimal? FeesAmountAC { get; set; }
+
+        /// <summary>
+        /// Fees Percentage Category
+        /// </summary>
+
+        [JsonProperty("feesPercentCategory")]
+        public string? FeesPercentCategory { get; set; }
+
+        /// <summary>
+        /// Fees Percent Category Code
+        /// </summary>
+
+        [JsonProperty("feesPercentCategoryCode")]
+        public int? FeesPercentCategoryCode { get; set; }
+
+        /// <summary>
+        /// Other Taxes Percent Category
+        /// </summary>
+
+        [JsonProperty("otherTaxesPercentCategory")]
+        public string? OtherTaxesPercentCategory { get; set; }
+
+        /// <summary>
+        /// Other Taxes Percent Category Code
+        /// </summary>
+
+        [JsonProperty("otherTaxesPercentCategoryCode")]
+        public int? OtherTaxesPercentCategoryCode { get; set; }
+
+        /// <summary>
+        /// Other Taxes Amount
+        /// </summary>
+
+        [JsonProperty("otherTaxesAmount")]
+        public decimal? OtherTaxesAmount { get; set; }
+
+        /// <summary>
+        /// Other Taxes Amount in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("otherTaxesAmountAC")]
+        public decimal? OtherTaxesAmountAC { get; set; }
+
+        /// <summary>
+        /// Deductions Amount
+        /// </summary>
+
+        [JsonProperty("deductionsAmount")]
+        public decimal? DeductionsAmount { get; set; }
+
+        /// <summary>
+        /// Deductions Amount in Accounting Currency
+        /// </summary>
+
+        [JsonProperty("deductionsAmountAC")]
+        public decimal? DeductionsAmountAC { get; set; }
+
+        /// <summary>
+        /// Informative lines are used for display purposes only and are not calculated
+        /// </summary>
+
+        [JsonProperty("isInformative")]
+        public bool ISInformative { get; set; }
+
+        [JsonProperty("isHidden")]
+        public bool ISHidden { get; set; }
+
+        /// <summary>
+        /// Record Type
+        /// </summary>
+
+        [JsonProperty("recordType")]
+        public string? RecordType { get; set; }
+
+        [JsonProperty("recordTypeCode")]
+        public RecordTypeEnum recordTypeCode { get; set; }
+
+        [JsonProperty("incomeClassification")]
+        public Classification IncomeClassification { get; set; }
+
+        [JsonProperty("expensesClassification")]
+        public Classification ExpensesClassification { get; set; }
+
+        [JsonProperty("vatClassification")]
+        public Classification VatClassification { get; set; }
+
+        /// <summary>
+        /// Fuel code used by IAPR for fuel invoices.
+        /// </summary>
+
+        [JsonProperty("fuelCode")]
+        public int? FuelCode { get; set; }
+
+        /// <summary>
+        /// Specific weight for fuel invoicse
+        /// </summary>
+
+        [JsonProperty("specificWeight")]
+        public decimal? SpecificWeight { get; set; }
+
+        /// <summary>
+        /// Detail Tags
+        /// </summary>
+
+        [JsonProperty("tags")]
+        public IEnumerable<string>? Tags { get; set; }
+
+        /// <summary>
+        /// For fuel invoices
+        /// </summary>
+
+        [JsonProperty("compartments")]
+        public string? Compartments { get; set; }
+
+        /// <summary>
+        /// Tank, Container name
+        /// </summary>
+
+        [JsonProperty("containerName")]
+        public string? ContainerName { get; set; }
+
+        /// <summary>
+        /// Conversion factor
+        /// </summary>
+
+        [JsonProperty("conversionFactor")]
+        public decimal? ConversionFactor { get; set; }
+
+        /// <summary>
+        /// Density
+        /// </summary>
+
+        [JsonProperty("density")]
+        public decimal? Density { get; set; }
+
+        /// <summary>
+        /// Temperature
+        /// </summary>
+
+        [JsonProperty("temperature")]
+        public decimal? Temperature { get; set; }
 
 
     }
