@@ -330,12 +330,68 @@ namespace Elise_Core_API
 
         [JsonProperty("additionalDetails")]
         public AdditionalDetails AdditionalDetails { get; set; }
-        
+
         [JsonProperty("details")]
         public IEnumerable<Detail>? Detail { get; set; }
 
         [JsonProperty("summaries")]
         public Summaries Summaries { get; set; }
+
+        [JsonProperty("taxes")]
+        public IEnumerable<Tax>? Taxes { get; set; }
+
+        [JsonProperty("vatAnalysis")]
+        public IEnumerable<Vat>? VatAnalysis { get; set; }
+
+        [JsonProperty("miscellaneousData")]
+        public MiscellaneousData MiscellaneousData { get; set; }
+
+        /// <summary>
+        /// Vat Payment Suspension(IAPR field)
+        /// </summary>
+
+        [JsonProperty("vatPaymentSuspension")]
+        public bool? VatPaymentSuspension { get; set; }
+
+        /// <summary>
+        /// Self Pricing(IAPR field)
+        /// </summary>
+
+        [JsonProperty("selfPricing")]
+        public bool? SelfPricing { get; set; }
+
+        [JsonProperty("isDelayed")]
+        public bool? IsDelayed { get; set; }
+
+        /// <summary>
+        /// Determines Reason of the delay.
+        /// </summary>
+
+        [JsonProperty("isDelayedCode")]
+        [JsonConverter(typeof(TransmissionFailureEnumToStringJsonConverter))]
+        public TransmissionFailureEnum TransmissionFailureEnum { get; set; }
+
+        /// <summary>
+        /// Is Fuel Invoice(IAPR field)
+        /// </summary>
+
+        [JsonProperty("isFuelInvoice")]
+        public bool? IsFuelInvoice { get; set; }
+
+        /// <summary>
+        /// Independent Public Revenue Authority
+        /// </summary>
+
+        [JsonProperty("aadeXml")]
+        public string? AADEXml { get; set; }
+
+        [JsonProperty("iaprResponse")]
+        public string? IAPRResponse {get; set;}
+
+        // supportedDocument
+
+        [JsonProperty("isRetail")]
+        public readonly bool IsFaulted;
 
     }
 }
