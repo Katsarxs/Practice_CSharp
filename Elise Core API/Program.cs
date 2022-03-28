@@ -334,5 +334,8 @@ namespace Elise_Core_API
         [JsonProperty("details")]
         public IEnumerable<Detail>? Detail { get; set; }
 
+        [JsonProperty("summaries")]
+        public Summaries Summaries { get; set; }
+
     }
 }
