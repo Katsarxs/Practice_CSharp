@@ -24,6 +24,19 @@ namespace Elise_Core_API
     /// The <see cref="JsonConverter{T}"/> that sets a <see cref="DateTime?"/> property based on its existence on the Json string
     /// </summary>
 
+    public class StringToNullableDateTimeDIFJsonConverter : BaseStringToNullableDateTimeJsonConverter
+    {
+        #region Constants
+
+        public override string DateTimeFormat { get; } = "yyyy-MM-ddTHH:mm:ss.fffffff+HH:mm";
+
+        #endregion
+    }
+
+    /// <summary>
+    /// The <see cref="JsonConverter{T}"/> that sets a <see cref="DateTime?"/> property based on its existence on the Json string
+    /// </summary>
+
     public class StringToDateTimeJsonConverter : BaseStringToNullableDateTimeJsonConverter
     {
         #region Constants
