@@ -7,13 +7,20 @@ using Newtonsoft.Json;
 
 namespace Elise_Core_API
 {
-    public class ReconciliationResponse
+    internal class ReconciliationResponse
     {
         [JsonProperty("count")]
         public int Count { get; set; }
 
         [JsonProperty("documents")]
-        public DocumentSynopsis? Documents { get; set; }
+        public IEnumerable<DocumentSynopsis>? Documents { get; set; }
 
+        public IEnumerable<DocumentSynopsis>? GetInvoiceSummaryAsync()
+        {
+            var result = JsonConvert.DeserializeObject<ReconciliationResponse>("");
+
+
+            return result.Documents;
+        }
     }
 }

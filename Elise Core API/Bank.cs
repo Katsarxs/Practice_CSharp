@@ -42,7 +42,7 @@ namespace Elise_Core_API
         /// </summary>
 
         [JsonProperty("vatin")]
-        public string? Vatin { get; sey; }
+        public string? Vatin { get; set; }
 
         /// <summary>
         /// Branch Code

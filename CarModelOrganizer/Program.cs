@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
@@ -11,124 +10,93 @@ namespace CarModelOrganizer
 {
     class Program
     {
+        public static List<object> ServiceCollection = new List<object>();
         static void Main(string[] args)
         {
-            Test();
+            var singleInstance = new GermanyDetails();
 
         }
-        public static void Test()
+
+        public interface ICountryTaxable
         {
-            var input = new List<CarModel>()
-            {
-                new()
-                {
-                    CompanyName = "Toyota",
-                    Model = "Yaris",
-                    Price = 14000
-                },
-                new()
-                {
-                    CompanyName = "Opel",
-                    Model = "Corsa",
-                    Price = 16000
-                },
-                new()
-                {
-                    CompanyName = "Toyota",
-                    Model = "Aygo",
-                    Price = 11000
-                },
-                new()
-                {
-                    CompanyName = "Toyota",
-                    Model = "Corolla",
-                    Price = 17000
-                },
-                new()
-                {
-                    CompanyName = "Fiat",
-                    Model = "Panda",
-                    Price = 12000
-                },
-                new()
-                {
-                    CompanyName = "Opel",
-                    Model = "Corsa",
-                    Price = 15500
-                },
-                new()
-                {
-                    CompanyName = "Toyota",
-                    Model = "Yaris",
-                    Price = 17000
-                },
-                new()
-                {
-                    CompanyName = "Opel",
-                    Model = "Astra",
-                    Price = 19000
-                },
-                new()
-                {
-                    CompanyName = "Fiat",
-                    Model = "Tipo",
-                    Price = 12000
-                }
-            };
+            string CountryCode { get; }
 
-            input.GroupBy(x => x.CompanyName)
-                .ToList()
-                .ForEach(x => Console.WriteLine($"{x.Key} : {x.Count()} [{x.Select(x => x.Model).Distinct().Aggregate((leftElement, rightElement) => leftElement + ", " + rightElement)}]"));
-
-            var companies = new HashSet<string>();
-
-            foreach (var company in input)
-            {
-                companies.Add(company.CompanyName);
-
-            }
-
-            var carsPerCompany = new Dictionary<string, List<CarModel>>();
-
-            foreach (var companyName in companies)
-            {
-                var companyCars = input.Where(carModel => carModel.CompanyName == companyName).ToList();
-
-                carsPerCompany.Add(companyName, companyCars);
-            }
-
-
-
-
-            foreach (var companyName in companies)
-            {
-                var companyCarModels = carsPerCompany[companyName];
-
-                var t = companyCarModels.Select(x => x.Model).Distinct().Aggregate((leftElement, rightElement) => leftElement + ", " + rightElement);
-
-                Console.WriteLine($"{companyName} : {companyCarModels.Count} [{t}]");
-            }
-
-            var breakPoint = "";
+            decimal GetTax();
         }
 
-        public int Int()
-            => 0;
-
-        public decimal Max(List<CarModel> values)
+        public class GermanyDetails : ICountryTaxable
         {
-            return values.Max(x => x.Price);  
-        }
+            public string CountryCode => "GE";
 
-        public TClass Max<TClass>(List<TClass> values, Func<TClass, int> valueSelector)
+            public decimal GetTax()
+                => 1;
+        }
+        public decimal GetTax(string country)
         {
-            var dict = new Dictionary<TClass, int>();
-            foreach (var element in values)
-            {
-               dict.Add(element,  valueSelector(element));
-            }
+            var supportedCountryCode = ServiceCollection.OfType<ICountryTaxable>().ToList();
 
-            return dict.OrderByDescending(x => x.Value).First().Key;
+            var selectedCountry = supportedCountryCode.FirstOrDefault(x => x.CountryCode == country);
+
+            if (selectedCountry == null)
+                return 0;
+
+            return selectedCountry.GetTax();
         }
+    }
+
+
+    public interface INameable
+    {
+        string Name { get; }
+
+
+        decimal GetSalary();
+    }
+
+    public class Claim
+    {
+        public string Name { get; set; }
+
+        public string Values { get; set; }
+    }
+
+    public abstract class User : INameable
+    {
+        protected List<Claim> Claims = new();
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        public int Id { get; set; }
+
+        public int Age { get; set; }
+
+        public abstract string GetTitle();
+
+        public abstract decimal GetSalary();
+    }
+
+    public class Employee : User
+    {
+        public override decimal GetSalary()
+        {
+            Claims.RemoveAll(x => x.Values == "Test");
+
+            return 0;
+        }
+
+        public override string GetTitle()
+            => "Employee";
+    }
+
+    public class Admin : User
+    {
+
+        public override string GetTitle()
+            => null;
+
+        public override decimal GetSalary()
+            => 10;
     }
 }
